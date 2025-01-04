@@ -137,6 +137,7 @@ function startAnalysis() {
     waveformCanvas.classList.add("active");
       createAuraEffect();
     drawWaveform(); // Start drawing the waveform
+       startVisualUpdates();
     setTimeout(stopRecording, 2000);
 }
 function stopRecording() {
@@ -145,6 +146,7 @@ function stopRecording() {
       analysisMessageDiv.classList.remove("show");
       analysisMessageDiv.classList.remove("animate");
        clearAuraEffects()
+       cancelAnimationFrame(animationFrameId)
     canvasCtx.clearRect(0, 0, waveformCanvas.width, waveformCanvas.height)
     // Stop audio tracks
     if (audioStream) {
@@ -255,6 +257,15 @@ function createAuraEffect() {
 function clearAuraEffects() {
     const auraElements = document.querySelectorAll('.aura-shape');
     auraElements.forEach(aura => aura.remove());
+}
+function startVisualUpdates() {
+    function updateVisuals() {
+     const audioIntensity = calculateAudioIntensity();
+    const averageFrequency = calculateAverageFrequency();
+        applyAuraStyling(audioIntensity, averageFrequency);
+            animationFrameId = requestAnimationFrame(updateVisuals);
+    }
+     updateVisuals();
 }
 
 function applyAuraStyling(intensity, frequency) {
