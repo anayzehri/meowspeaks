@@ -24,57 +24,16 @@
 body {
     font-family: sans-serif;
     margin: 0;
-     background-color: var(--color-background);
+    background-color: var(--color-background);
     color: var(--color-text);
     display: flex;
     flex-direction: column;
     align-items: center;
     min-height: 100vh;
     overflow-x: hidden;
-       background-size: 200% 200%; /* Increase background size */
-    animation: gradientAnimation 20s ease infinite; /* Animated gradient */
-     transition: background 0.5s ease; /* Smooth transition */
-    position: relative;
-  -webkit-tap-highlight-color: transparent; /* disable tap highlight on mobile */
-}
-body::before{
-     content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-     background-image: url('https://i.imgur.com/s9O7n8U.png');
-    background-repeat: repeat;
-    background-size: 500px 500px;
-    opacity: 0.15;
-      z-index: 0;
-    animation: subtleParallax 40s linear infinite;
-}
-@keyframes subtleParallax{
-    from{
-        background-position: 0px 0px;
-    }
-    to{
-          background-position: 1000px 1000px;
-    }
-}
+        -webkit-tap-highlight-color: transparent; /* disable tap highlight on mobile */
 
-@keyframes gradientAnimation {
-    0% {
-        background-position: 0% 50%;
-        background-image: linear-gradient(45deg, #ff9a9e, #fad0c4, #a1c4fd);
-    }
-    50% {
-         background-position: 100% 50%;
-        background-image: linear-gradient(45deg, #a1c4fd, #fad0c4, #ff9a9e);
-    }
-    100% {
-          background-position: 0% 50%;
-        background-image: linear-gradient(45deg, #ff9a9e, #fad0c4, #a1c4fd);
-    }
 }
-
 
 html {
     overflow-x: hidden;
@@ -109,11 +68,6 @@ main {
     padding: var(--spacing-medium);
     width: 90%;
     max-width: 1200px;
-      transform: translateY(0); /* Add a default transform */
-    transition: transform 0.3s ease-in-out, background-color 0.3s ease;
-}
-main:hover {
-       transform: translateY(-5px);
 }
 
 .blog-header-container {
@@ -180,8 +134,6 @@ main:hover {
     transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out, background-color 0.3s ease;
       position: relative; /* For positioning aura */
       z-index: 1; /* Ensure button is above the aura */
-        transform: scale(1);
-        transition: transform 0.2s ease-in-out;
 }
 
 .record-button:hover {
@@ -195,24 +147,6 @@ main:hover {
 
 .record-button.recording {
     animation: pulse 1s infinite;
-}
-.record-button.recording::before {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%) scale(1);
-  width: 110%;
-  height: 110%;
-  border-radius: 50%;
-     background: rgba(255,255,255, 0.3); /* A bright halo effect */
-   animation: pulseHalo 1s ease infinite;
-    z-index: -1; /* Under the button */
-}
-@keyframes pulseHalo{
-    0% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
-    50% { transform: translate(-50%, -50%) scale(1.2); opacity: 0.5;  }
-    100% { transform: translate(-50%, -50%) scale(1); opacity: 1;}
 }
 
 @keyframes pulse {
@@ -245,6 +179,20 @@ main:hover {
       transform: scale(2.5);
         opacity: 0.5;
      background-color: rgba(255,255,255, 0.3);
+}
+
+.record-indicator{
+    position: absolute;
+    top: -60px;
+    font-size: 1.5rem;
+    opacity: 0;
+    color: var(--color-primary);
+     transition: opacity 0.3s ease-in-out;
+    font-style: italic;
+
+}
+.record-indicator.recording{
+    opacity:1;
 }
 
 #waveformCanvas {
@@ -319,7 +267,6 @@ main:hover {
 
 #translationOutput {
     padding: var(--spacing-medium);
-      position: relative;
     background-color: #fff;
     border-radius: 10px;
     box-shadow: var(--box-shadow-medium);
@@ -328,24 +275,7 @@ main:hover {
     opacity: 0;
     transform: translateY(20px);
     transition: opacity 0.5s ease-out, transform 0.5s ease-out;
-      transform-origin: center;
-         transition: transform 0.3s ease, opacity 0.5s ease;
-}
-#translationOutput::before {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%) scale(0);
-   width: 110%;
-    height: 110%;
-  border-radius: 10px;
-    background: rgba(255,255,255, 0.3);
-    transition: transform 0.3s ease;
-    z-index: -1; /* Under the text */
-}
-#translationOutput:hover::before{
-      transform: translate(-50%, -50%) scale(1);
+    margin-bottom: 5px;
 }
 
 #translationOutput.show {
@@ -368,7 +298,7 @@ main:hover {
 .meow-type-placeholder {
     font-size: 2em;
     color: var(--color-dark-grey);
-     transition: background-color 0.3s ease, transform 0.3s ease;
+     transition: background-color 0.3s ease;
       position: relative;
        z-index: 1; /* Ensure text is above the aura */
     padding: 5px;
@@ -376,18 +306,14 @@ main:hover {
         border-radius: 10px;
     opacity: 0;
         transition: opacity 0.5s ease-out;
-       transform: scale(1);
 }
 .meow-type-placeholder.show{
     opacity: 1;
-      transform: scale(1.1);
 }
-
 
 #catFact {
     margin-top: var(--spacing-medium);
     padding: 15px;
-      position: relative;
     background-color: var(--color-accent);
     border-radius: 10px;
     box-shadow: var(--box-shadow-medium);
@@ -396,25 +322,6 @@ main:hover {
     opacity: 0;
     transform: translateY(20px);
     transition: opacity 0.5s ease-out, transform 0.5s ease-out;
-     transform-origin: center;
-       transition: transform 0.3s ease, opacity 0.5s ease;
-
-}
-#catFact::before {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%) scale(0);
-  width: 110%;
-    height: 110%;
-  border-radius: 10px;
-    background: rgba(255,255,255, 0.3);
-      transition: transform 0.3s ease;
-    z-index: -1; /* Under the text */
-}
-#catFact:hover::before{
-      transform: translate(-50%, -50%) scale(1);
 }
 
 #catFact.show {
@@ -556,4 +463,4 @@ footer {
     50% { transform: translate(-50%, -50%) scale(1.2); }
     100% { transform: translate(-50%, -50%) scale(1); }
 }
-     }
+}
