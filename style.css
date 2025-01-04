@@ -35,6 +35,7 @@ body {
     animation: gradientAnimation 20s ease infinite; /* Animated gradient */
      transition: background 0.5s ease; /* Smooth transition */
     position: relative;
+  -webkit-tap-highlight-color: transparent; /* disable tap highlight on mobile */
 }
 body::before{
      content: "";
@@ -225,6 +226,27 @@ main:hover {
         transform: scale(1);
     }
 }
+.record-button::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+   border-radius: 50%;
+  background-color: rgba(255,255,255,0);
+  pointer-events: none;
+  opacity: 0;
+  transition: transform 0.3s ease, opacity 0.3s ease, background-color 0.3s ease;
+  transform: scale(0);
+}
+
+.record-button:active::after{
+      transform: scale(2.5);
+        opacity: 0.5;
+     background-color: rgba(255,255,255, 0.3);
+}
+
 #waveformCanvas {
     margin-top: var(--spacing-small);
     width: 200px;
