@@ -1,7 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <script src="https://cdn.jsdelivr.net/npm/meyda@5.2.4/dist/meyda.min.js"></script>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YEDQECMYF3">
+</script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-YEDQECMYF3');
+</script>
+<script type='text/javascript' src='//pl25473685.profitablecpmrate.com/09/89/5f/09895fcaba0fc92af6769a04b95e46b9.js'></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Purrfect Translator</title>
@@ -44,12 +55,6 @@
         <a href="blog-post-4.html">Why Do Cats Knead?</a>
         <a href="blog-post-5.html">How to Introduce a New Cat to Your Home</a>
         <a href="blog-post-6.html">The Importance of Play for Cats</a>
-        <a href="blog-post-1.html">Understanding Your Cat's Meows</a>
-        <a href="blog-post-2.html">Decoding Cat Body Language</a>
-        <a href="blog-post-3.html">The Mystery of the Cat's Purr</a>
-        <a href="blog-post-4.html">Why Do Cats Knead?</a>
-        <a href="blog-post-5.html">How to Introduce a New Cat to Your Home</a>
-        <a href="blog-post-6.html">The Importance of Play for Cats</a>
     </div>
 </div>
     <main>
@@ -57,7 +62,7 @@
             <button id="recordBtn" class="record-button" aria-label="Start recording" title="Start Recording">
                 <i class="fas fa-microphone"></i>
             </button>
-            <div id="soundLevel" class="sound-level"></div>
+             <div class="record-indicator">Recording...</div>
             <div id="listeningIndicator" class="listening-indicator"></div>
             <canvas id="waveformCanvas" class="waveform"></canvas>
         </div>
@@ -78,7 +83,7 @@
             <div id="translationOutput" class="translation-output">
             </div>
             <div id="confidenceLevel" class="confidence-level"></div>
-             <span id="meowTypeIcon" class="meow-type-placeholder"></span>
+             <div class="meow-type-placeholder">😺</div>
         </div>
 
         <div id="catFact" class="cat-fact"></div>
