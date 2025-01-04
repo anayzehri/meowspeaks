@@ -110,7 +110,7 @@ main {
     width: 90%;
     max-width: 1200px;
       transform: translateY(0); /* Add a default transform */
-    transition: transform 0.3s ease-in-out;
+    transition: transform 0.3s ease-in-out, background-color 0.3s ease;
 }
 main:hover {
        transform: translateY(-5px);
@@ -329,6 +329,7 @@ main:hover {
     transform: translateY(20px);
     transition: opacity 0.5s ease-out, transform 0.5s ease-out;
       transform-origin: center;
+         transition: transform 0.3s ease, opacity 0.5s ease;
 }
 #translationOutput::before {
   content: '';
@@ -367,19 +368,19 @@ main:hover {
 .meow-type-placeholder {
     font-size: 2em;
     color: var(--color-dark-grey);
-     transition: background-color 0.3s ease;
+     transition: background-color 0.3s ease, transform 0.3s ease;
       position: relative;
        z-index: 1; /* Ensure text is above the aura */
     padding: 5px;
     margin: 5px;
         border-radius: 10px;
     opacity: 0;
-        transition: opacity 0.5s ease-out, transform 0.3s ease-in-out;
+        transition: opacity 0.5s ease-out;
        transform: scale(1);
 }
 .meow-type-placeholder.show{
     opacity: 1;
-        transform: scale(1.1);
+      transform: scale(1.1);
 }
 
 
@@ -396,6 +397,7 @@ main:hover {
     transform: translateY(20px);
     transition: opacity 0.5s ease-out, transform 0.5s ease-out;
      transform-origin: center;
+       transition: transform 0.3s ease, opacity 0.5s ease;
 
 }
 #catFact::before {
@@ -554,4 +556,4 @@ footer {
     50% { transform: translate(-50%, -50%) scale(1.2); }
     100% { transform: translate(-50%, -50%) scale(1); }
 }
-}
+     }
