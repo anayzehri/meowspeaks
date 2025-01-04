@@ -335,8 +335,8 @@ function startFrequencyEffects() {
         mainContainer.style.backgroundColor = `hsl(${hue}, 50%, ${95-(audioIntensity *30)}%)`
         translationOutput.style.transform = `translateY(0) scale(${scale})`;
         catFactDiv.style.transform = `translateY(0) scale(${scale})`;
-        meowPlaceholder.style.transform = `scale(${1+pulseIntensity})`;
+           meowPlaceholder.style.transform = `scale(${1+pulseIntensity})`;
          animationFrameId = requestAnimationFrame(animateFrequency);
     }
     animateFrequency();
-                    }
+}
